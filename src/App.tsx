@@ -233,25 +233,27 @@ export default function App() {
     : TESTIMONIALS.filter(t => t.tags.some(tag => tag.toLowerCase().includes(selectedTag.toLowerCase().slice(0, 5))));
 
   return (
-    <div className="bg-warm-50 text-brand-900 font-sans antialiased min-h-screen relative overflow-x-hidden" id="app-container">
+    <div className="bg-warm-50 text-brand-900 font-sans antialiased min-h-screen relative" id="app-container">
       
-      {/* ⚡ TOP CONVERSION HEADER ALERT */}
-      <div className="bg-brand-900 text-brand-100 text-[11px] sm:text-xs py-2 px-4 font-medium tracking-normal text-center flex items-center justify-center gap-1.5 sm:gap-3 border-b border-brand-800 relative z-50 shadow-sm" id="alert-bar">
-        <span className="flex h-2 w-2 relative">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-gold opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-gold"></span>
-        </span>
-        <span className="text-warm-100">
-          PROMOÇÃO EXCLUSIVA: O Treinamento Completo + 5 Bônus Especiais sai de <span className="line-through opacity-70">R$97</span> por apenas <span className="font-bold text-white bg-brand-800/80 px-1.5 py-0.5 rounded">R$ 37</span>!
-        </span>
-        <span className="hidden md:inline font-mono text-amber-gold">
-          {formatTime(timeLeft)}
-        </span>
-      </div>
+      {/* FIXED HEADER WRAPPER */}
+      <div className="sticky top-0 w-full z-50 flex flex-col">
+        {/* ⚡ TOP CONVERSION HEADER ALERT */}
+        <div className="bg-brand-900 text-brand-100 text-[11px] sm:text-xs py-2 px-4 font-medium tracking-normal text-center flex justify-center items-center gap-1.5 sm:gap-3 border-b border-brand-800 shadow-sm" id="alert-bar">
+          <span className="flex h-2 w-2 relative">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-gold opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-gold"></span>
+          </span>
+          <span className="text-warm-100">
+            PROMOÇÃO EXCLUSIVA: O Treinamento Completo + 5 Bônus Especiais sai de <span className="line-through opacity-70">R$97</span> por apenas <span className="font-bold text-white bg-brand-800/80 px-1.5 py-0.5 rounded">R$ 37</span>!
+          </span>
+          <span className="hidden md:inline font-mono text-amber-gold">
+            {formatTime(timeLeft)}
+          </span>
+        </div>
 
-      {/* STICKY COMPACT HEADLINE */}
-      <header className="sticky top-0 bg-white/95 backdrop-blur-md z-40 border-b border-brand-100/60 shadow-xs transition-all" id="sticky-header">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        {/* COMPACT HEADLINE */}
+        <header className="bg-white/95 backdrop-blur-md border-b border-brand-100/60 shadow-xs transition-all" id="sticky-header">
+          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-1.5 sm:gap-2">
             <span className="bg-brand-50 text-brand-600 p-1.5 rounded-full border border-brand-100 hidden sm:block">
               <LeafIcon className="h-4 w-4" />
@@ -281,6 +283,7 @@ export default function App() {
           </div>
         </div>
       </header>
+      </div>
 
       {/* 🌿 SECTION 1: HERO (Primeira dobra) */}
       <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 overflow-hidden bg-gradient-to-b from-brand-50/50 via-warm-100/35 to-warm-50" id="hero-section">
