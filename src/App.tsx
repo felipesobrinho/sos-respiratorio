@@ -416,7 +416,7 @@ export default function App() {
                     src="/crianca2.jpg" 
                     alt="Criança doente com nariz escorrendo" 
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-fill object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none" />
                 </div>
@@ -942,7 +942,7 @@ export default function App() {
                     src="/miriam.jpg" 
                     alt="Miriam Nardin - Aromaterapeuta Infantil" 
                     referrerPolicy="no-referrer"
-                    className="absolute inset-0 w-full h-full object-cover object-center transition duration-500 group-hover:scale-102"
+                    className="absolute inset-0 w-full h-full object-fill object-center transition duration-500 group-hover:scale-102"
                     onError={(e) => {
                       const img = e.currentTarget;
                       if (img.src.endsWith("/miriam.jpg")) {
