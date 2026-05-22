@@ -128,9 +128,9 @@ export default function App() {
       setTimeout(() => setShowToast(false), 5000);
     };
 
-    // Initial toast after 4s, then cycle every 18s
-    const initialTimer = setTimeout(triggerToast, 4000);
-    const interval = setInterval(triggerToast, 18000);
+    // Initial toast after 10s, then cycle every 60s
+    const initialTimer = setTimeout(triggerToast, 10000);
+    const interval = setInterval(triggerToast, 60000);
     
     return () => {
       clearTimeout(initialTimer);
@@ -419,7 +419,7 @@ export default function App() {
               Você se identifica com algumas dessas situações?
             </h3>
             <p className="text-sm sm:text-base text-brand-600 max-w-2xl mx-auto leading-relaxed">
-              Sabemos o quanto dói ver os filhos doentes e se sentir impotente. Selecione abaixo os sintomas ou sentimentos que você mais lida hoje no seu lar:
+              Selecione abaixo os sintomas ou sentimentos que você mais lida hoje no seu lar:
             </p>
           </div>
 
@@ -1118,7 +1118,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           
           <span className="text-[10px] sm:text-xs font-bold text-amber-gold tracking-widest uppercase bg-brand-800 border border-brand-700 py-1 px-4 rounded-full mb-6 inline-block">
-            🎁 ACESSO IMEDIATO & COMPREENSIVO
+            🎁 ACESSO IMEDIATO
           </span>
 
           <h3 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4 leading-tight">

@@ -44,7 +44,7 @@ export const PAIN_POINTS: PainPoint[] = [
     id: "nose",
     icon: "Frown",
     text: "Seu filho vive com o nariz escorrendo",
-    subtext: "Dificuldade de respirar,  irritação continua e uso constante de xaropes e antialérgicos."
+    subtext: "Dificuldade de respirar, irritação continua e uso constante de xaropes e antialérgicos."
   },
   {
     id: "cough",
