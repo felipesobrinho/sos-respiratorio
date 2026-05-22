@@ -10,7 +10,8 @@ import {
   Layers, Fingerprint, Clock, ShieldCheck, BookOpen, Frown, Moon, 
   RefreshCw, AlertCircle, ShieldAlert, Play, Check, CheckCircle2, 
   ChevronDown, Star, Lock, Mail, ExternalLink, HelpCircle, Gift, 
-  Users, Instagram, Award, Shield, AlertTriangle, ArrowRight, Bookmark, Flame
+  Users, Instagram, Award, Shield, AlertTriangle, ArrowRight, Bookmark, Flame,
+  Menu, MoreVertical, ChevronUp
 } from "lucide-react";
 import { 
   PAIN_POINTS, COURSE_MODULES, BONUSES, TESTIMONIALS, OBJECTIONS 
@@ -37,6 +38,9 @@ const IconMapper = ({ name, className }: { name: string; className?: string }) =
     case "AlertCircle": return <AlertCircle className={className} id="icon-alertcircle" />;
     case "ShieldAlert": return <ShieldAlert className={className} id="icon-shieldalert" />;
     case "Play": return <Play className={className} id="icon-play" />;
+    case "Menu": return <Menu className={className} id="icon-menu" />;
+    case "MoreVertical": return <MoreVertical className={className} id="icon-more-vertical" />;
+    case "ChevronUp": return <ChevronUp className={className} id="icon-chevron-up" />;
     default: return <Sparkles className={className} id="icon-default" />;
   }
 };
@@ -63,6 +67,22 @@ export default function App() {
 
   // State: Objection Accordion item index
   const [openObjection, setOpenObjection] = useState<string | null>(null);
+
+  // State: Expanded modules
+  const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>(() => {
+    const initial: Record<string, boolean> = {};
+    if (COURSE_MODULES.length > 0) {
+      initial[COURSE_MODULES[0].id] = true;
+    }
+    return initial;
+  });
+
+  const toggleModule = (id: string) => {
+    setExpandedModules(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
 
   // State: Slider before/after view position
   const [slidePos, setSlidePos] = useState<number>(50);
@@ -275,7 +295,7 @@ export default function App() {
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs font-semibold uppercase tracking-wider mb-6 sm:mb-8 border border-brand-200/50 shadow-xs"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white text-gray-800 text-xs font-semibold uppercase tracking-wider mb-6 sm:mb-8 border border-gray-200 shadow-sm"
             id="hero-badge"
           >
             <Sparkles className="h-3.5 w-3.5 text-amber-gold fill-amber-gold animate-pulse" />
@@ -287,7 +307,7 @@ export default function App() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-brand-900 tracking-tight leading-[1.1] mb-6"
+            className="font-sans text-3xl sm:text-5xl md:text-6xl font-extrabold text-black tracking-tight leading-[1.1] mb-6"
             id="hero-main-title"
           >
             SOS Respiratório Infantil
@@ -395,9 +415,6 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4">
           
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <span className="text-xs font-semibold text-brand-600 tracking-wider uppercase bg-brand-100 px-3 py-1 rounded-full mb-3 inline-block">
-              Avaliação de Sinais
-            </span>
             <h3 className="font-serif text-2xl sm:text-4xl font-bold text-brand-900 tracking-tight mb-4">
               Você se identifica com algumas dessas situações?
             </h3>
@@ -565,9 +582,6 @@ export default function App() {
         <div className="max-w-5xl mx-auto px-4">
           
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-semibold text-brand-600 tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full mb-3 inline-block">
-              A Ponte de Transição
-            </span>
             <h3 className="font-serif text-2xl sm:text-4xl font-bold text-brand-900 tracking-tight leading-snug">
               Existe um caminho seguro entre o desespero da crise e o bem-estar contínuo do seu filho
             </h3>
@@ -608,7 +622,7 @@ export default function App() {
                       </li>
                       <li className="flex items-center gap-2">
                         <Check className="h-4.5 w-4.5 text-brand-600 flex-shrink-0" />
-                        <span>Saber a dosagem precisa em gotas para o peso correto</span>
+                        <span>Saber a dosagem precisa em gotas para a idade correta</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <Check className="h-4.5 w-4.5 text-brand-600 flex-shrink-0" />
@@ -624,34 +638,36 @@ export default function App() {
 
                 {/* BEFORE side (Crisis) - clipped layout */}
                 <div 
-                  className="absolute inset-y-0 left-0 bg-rose-50 border-r border-amber-gold/50 flex flex-col justify-center px-6 sm:px-12 text-left overflow-hidden"
+                  className="absolute inset-y-0 left-0 bg-rose-50 border-r border-amber-gold/50 overflow-hidden"
                   style={{ width: `${slidePos}%` }}
                 >
-                  <div className="min-w-80 sm:min-w-[600px] max-w-md">
-                    <span className="text-xs bg-rose-600 text-white font-semibold py-1 px-3.5 rounded-full uppercase tracking-wider mb-3.5 inline-block shadow-2xs">
-                      Crise & Insegurança (ANTES)
-                    </span>
-                    <h4 className="font-serif text-2xl sm:text-3.5xl font-bold text-rose-950 mb-3.5 leading-tight">
-                      Sono cortado pela tosse e pânico à noite
-                    </h4>
-                    <ul className="space-y-2.5 text-xs sm:text-sm text-rose-800 font-medium opacity-90">
-                      <li className="flex items-center gap-2">
-                        <AlertTriangle className="h-4.5 w-4.5 text-rose-600 flex-shrink-0" />
-                        <span>Coração apertado vendo o nariz da criança trancado</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <AlertTriangle className="h-4.5 w-4.5 text-rose-600 flex-shrink-0" />
-                        <span>Dúvidas assustadoras se o óleo essencial pode queimar a pele</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <AlertTriangle className="h-4.5 w-4.5 text-rose-600 flex-shrink-0" />
-                        <span>Correr para o PS para tomar antialérgico de emergência</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <AlertTriangle className="h-4.5 w-4.5 text-rose-600 flex-shrink-0" />
-                        <span>Sensação de culpa de não estar agindo do jeito certo</span>
-                      </li>
-                    </ul>
+                  <div className="absolute inset-0 flex flex-col justify-center px-6 sm:px-12 text-left w-full min-w-[320px] sm:min-w-[600px]">
+                    <div className="max-w-md">
+                      <span className="text-xs bg-rose-600 text-white font-semibold py-1 px-3.5 rounded-full uppercase tracking-wider mb-3.5 inline-block shadow-2xs">
+                        Crise & Insegurança (ANTES)
+                      </span>
+                      <h4 className="font-serif text-2xl sm:text-3.5xl font-bold text-rose-950 mb-3.5 leading-tight">
+                        Sono cortado pela tosse e pânico à noite
+                      </h4>
+                      <ul className="space-y-2.5 text-xs sm:text-sm text-rose-800 font-medium opacity-90">
+                        <li className="flex items-center gap-2">
+                          <AlertTriangle className="h-4.5 w-4.5 text-rose-600 flex-shrink-0" />
+                          <span>Coração apertado vendo o nariz da criança trancado</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <AlertTriangle className="h-4.5 w-4.5 text-rose-600 flex-shrink-0" />
+                          <span>Dúvidas assustadoras se o óleo essencial pode queimar a pele</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <AlertTriangle className="h-4.5 w-4.5 text-rose-600 flex-shrink-0" />
+                          <span>Correr para o PS para tomar antialérgico de emergência</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <AlertTriangle className="h-4.5 w-4.5 text-rose-600 flex-shrink-0" />
+                          <span>Sensação de culpa de não estar agindo do jeito certo</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
 
@@ -711,55 +727,82 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-semibold text-brand-600 tracking-wider uppercase bg-brand-100 px-3 py-1 rounded-full mb-3 inline-block">
+            <span className="text-xs font-bold text-gray-800 tracking-widest uppercase bg-gray-100 border border-gray-200 px-3 py-1 rounded-full mb-3 inline-block">
               Ementa Completa
             </span>
-            <h3 className="font-serif text-2xl sm:text-4xl font-bold text-brand-900 tracking-tight leading-snug">
+            <h3 className="font-sans text-2xl sm:text-4xl font-extrabold text-black tracking-tight leading-snug">
               Veja por dentro tudo o que você vai dominar no treinamento
             </h3>
-            <p className="text-sm sm:text-base text-brand-650 mt-3 max-w-xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-600 mt-4 max-w-xl mx-auto font-medium">
               Aulas diretas de 5 a 10 minutos, sem rodeios ou termos técnicos complexos, prontas para visualização imediata.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="modules-grid-list">
-            {COURSE_MODULES.map((mod, index) => (
+          <div className="flex flex-col gap-6 max-w-3xl mx-auto" id="modules-list">
+            {COURSE_MODULES.map((mod) => {
+              const isExpanded = expandedModules[mod.id] ?? false;
+
+              return (
               <div 
                 key={mod.id}
                 id={`module-item-${mod.id}`}
-                className="bg-warm-50/50 border border-brand-100/70 p-6 rounded-2xl hover:bg-white hover:border-brand-200 hover:shadow-xs transition-all duration-300"
+                className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden transition-all duration-300"
               >
-                <div className="flex items-center gap-3 mb-3.5">
-                  <div className="text-xs font-mono font-bold text-brand-500 bg-brand-100/60 px-2.5 py-1 rounded-lg">
-                    {index + 1 < 10 ? `0${index + 1}` : index + 1}
+                {/* Header */}
+                <button 
+                  onClick={() => toggleModule(mod.id)}
+                  className="w-full text-left flex items-center justify-between p-4 sm:p-5 border-b border-gray-100 bg-gray-50/50 hover:bg-gray-100/70 transition-colors cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-gray-400"><IconMapper name="Menu" className="w-5 h-5 hidden sm:block" /></span>
+                    <div className="w-5 h-5 border border-gray-200 rounded-md bg-white"></div>
+                    <h4 className="font-sans font-medium text-lg text-black uppercase tracking-wide ml-1">
+                      {mod.title}
+                    </h4>
+                    <span className="ml-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-indigo-50 text-indigo-600 text-xs font-semibold">
+                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-400"></div>
+                      {mod.itemCount} conteúdos
+                    </span>
                   </div>
-                  <span className={`text-[10px] font-bold py-0.5 px-2.5 rounded-full uppercase tracking-wider ${
-                    mod.type === 'oil' 
-                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-100' 
-                      : mod.type === 'safety' 
-                      ? 'bg-amber-50 text-amber-800 border border-amber-100'
-                      : mod.type === 'method'
-                      ? 'bg-sky-50 text-sky-800 border-sky-100'
-                      : 'bg-brand-100 text-brand-800'
-                  }`}>
-                    {mod.type === 'oil' ? '🌿 Protocolo de Óleo' : mod.type === 'safety' ? '⚠️ Segurança' : mod.type === 'method' ? '👉 Métodos' : '📋 Conceitual'}
-                  </span>
-                </div>
+                  <div className="text-gray-500 border border-gray-200 rounded-md p-1 bg-white shadow-xs">
+                    <IconMapper name="MoreVertical" className="w-5 h-5" />
+                  </div>
+                </button>
+                
+                {/* Arrow space */}
+                <button 
+                  onClick={() => toggleModule(mod.id)}
+                  className="w-full bg-slate-50 border-b border-gray-100 flex justify-center py-2 hover:bg-slate-100 transition-colors cursor-pointer"
+                >
+                  <div className={`transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`}>
+                    <IconMapper name="ChevronDown" className="w-5 h-5 text-gray-500" />
+                  </div>
+                </button>
 
-                <div className="flex gap-3 mb-2.5">
-                  <span className="text-brand-600 flex-shrink-0 mt-0.5">
-                    <IconMapper name={mod.iconName} className="h-4.5 w-4.5" />
-                  </span>
-                  <h4 className="font-serif font-bold text-base sm:text-lg text-brand-900 tracking-tight">
-                    {mod.title}
-                  </h4>
+                {/* Contents list */}
+                <div 
+                  className={`grid transition-all duration-300 ease-in-out ${isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                >
+                  <div className="overflow-hidden flex flex-col">
+                    {mod.contents.map((content, idx) => (
+                      <div key={idx} className="flex items-center justify-between p-4 sm:p-5 border-b border-gray-100 last:border-0 hover:bg-slate-50 transition-colors">
+                        <div className="flex items-center gap-3 w-3/4">
+                          <span className="text-gray-300"><IconMapper name="Menu" className="w-4 h-4 hidden sm:block" /></span>
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 border border-gray-200 rounded text-transparent bg-white flex-shrink-0"></div>
+                          <span className="font-sans text-sm sm:text-base text-gray-600 uppercase tracking-widest border-b border-dashed border-gray-300 pb-0.5 truncate max-w-full">
+                            {content.title}
+                          </span>
+                        </div>
+                        <span className="flex-shrink-0 ml-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
+                          Publicado
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-
-                <p className="text-xs sm:text-sm text-brand-600/90 leading-relaxed pl-7.5">
-                  {mod.description}
-                </p>
               </div>
-            ))}
+            )})}
           </div>
 
         </div>

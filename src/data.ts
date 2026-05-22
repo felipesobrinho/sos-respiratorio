@@ -8,9 +8,11 @@ export interface PainPoint {
 export interface CourseModule {
   id: string;
   title: string;
-  description: string;
-  type: "oil" | "method" | "safety" | "general";
-  iconName: string;
+  itemCount: number;
+  contents: {
+    title: string;
+    published: boolean;
+  }[];
 }
 
 export interface Bonus {
@@ -42,7 +44,7 @@ export const PAIN_POINTS: PainPoint[] = [
     id: "nose",
     icon: "Frown",
     text: "Seu filho vive com o nariz escorrendo",
-    subtext: "Dificuldade de respirar, irritação contínua e as trocas constantes de lenços que assam a pele sensível do bebê."
+    subtext: "Dificuldade de respirar,  irritação continua e uso constante de xaropes e antialérgicos."
   },
   {
     id: "cough",
@@ -79,87 +81,40 @@ export const PAIN_POINTS: PainPoint[] = [
 export const COURSE_MODULES: CourseModule[] = [
   {
     id: "m1",
-    title: "Introdução Simples aos Óleos Essenciais",
-    description: "Desmistifique a aromaterapia. Entenda de forma descomplicada o que são, de onde vêm e por que funcionam de verdade na fisiologia infantil.",
-    type: "general",
-    iconName: "Sparkles"
+    title: "MÓDULO 1",
+    itemCount: 7,
+    contents: [
+      { title: "BOAS VINDAS!", published: true },
+      { title: "INTRODUÇÃO", published: true },
+      { title: "O QUE SÃO ÓLEOS", published: true },
+      { title: "VIAS DE USO", published: true },
+      { title: "DILUIÇÃO", published: true },
+      { title: "AULA PRÁTICA - Diluição", published: true },
+      { title: "COMO COMPRAR ÓLEOS", published: true }
+    ]
   },
   {
     id: "m2",
-    title: "Identificação dos Sintomas Respiratórios",
-    description: "Aprenda a analisar os primeiros sinais do corpo da criança — tosse, secreção, esforço respiratório — com olhar de mãe atenta.",
-    type: "general",
-    iconName: "Activity"
+    title: "MÓDULO 2",
+    itemCount: 6,
+    contents: [
+      { title: "AVISOS", published: true },
+      { title: "TOSSE", published: true },
+      { title: "RESFRIADO", published: true },
+      { title: "GRIPE", published: true },
+      { title: "RINITE", published: true },
+      { title: "DOR DE GARGANTA", published: true }
+    ]
   },
   {
     id: "m3",
-    title: "🌿 Protocolo Especial para Tosse Seca",
-    description: "Quais óleos utilizar, diluições precisas e métodos para acalmar a garganta irritada e devolver o sono tranquilo.",
-    type: "oil",
-    iconName: "Wind"
-  },
-  {
-    id: "m4",
-    title: "🌿 Protocolo para Tosse com Catarro",
-    description: "Sinergias seguras que ajudam a fluidificar o muco e facilitar a expectoração natural sem sobrecarregar o corpinho do seu filho.",
-    type: "oil",
-    iconName: "Droplets"
-  },
-  {
-    id: "m5",
-    title: "🌿 Febre, Rinite e Nariz Entupido",
-    description: "Alívio imediato da congestão nasal de forma natural, garantindo respiração limpa e controle seguro da temperatura.",
-    type: "oil",
-    iconName: "Thermometer"
-  },
-  {
-    id: "m6",
-    title: "🌿 Resfriado, Gripe e Dor de Garganta",
-    description: "Atuação completa no combate aos agentes patógenos e alívio do desconforto na garganta do bebê.",
-    type: "oil",
-    iconName: "Heart"
-  },
-  {
-    id: "m7",
-    title: "Diluições Seguras por Faixa Etária",
-    description: "A regra de ouro de gotas por ml. Tabela definitiva e à prova de erros para bebês, crianças pequenas e maiores.",
-    type: "safety",
-    iconName: "Calculator"
-  },
-  {
-    id: "m8",
-    title: "Como Montar Sinergias (Blends)",
-    description: "O segredo de misturar os óleos certos para potencializar os resultados, criando sua própria farmácia natural.",
-    type: "method",
-    iconName: "Layers"
-  },
-  {
-    id: "m9",
-    title: "Locais Corretos de Aplicação",
-    description: "Massagem no peito, sola dos pés, costas. Onde, quando e como massagear com segurança de acordo com a idade.",
-    type: "method",
-    iconName: "Fingerprint"
-  },
-  {
-    id: "m10",
-    title: "Tempo de Utilização e Observação",
-    description: "Como monitorar as respostas da criança e saber quando ajustar as dosagens ou dar por encerrado o protocolo.",
-    type: "safety",
-    iconName: "Clock"
-  },
-  {
-    id: "m11",
-    title: "Fortalecimento da Imunidade",
-    description: "O protocolo preventivo exclusivo para blindar a saúde respiratória antes mesmo que os primeiros resfriados comecem.",
-    type: "general",
-    iconName: "ShieldCheck"
-  },
-  {
-    id: "m12",
-    title: "Guia Detalhado de Óleos Essenciais",
-    description: "Um mergulho essencial nos principais óleos seguros para uso pediátrico: Lavanda, Melaleuca, Camomila Romana e outros.",
-    type: "general",
-    iconName: "BookOpen"
+    title: "MÓDULO 3",
+    itemCount: 3,
+    contents: [
+      { title: "MATURIDADE TERAPÊUTICA", published: true },
+      { title: "BÔNUS", published: true },
+      { title: "PRESENTE ESPECIAL", published: true }
+    ]
   }
 ];
 
@@ -170,13 +125,6 @@ export const BONUSES: Bonus[] = [
     originalPrice: "R$ 47,00",
     description: "Aprenda a agir com segurança e serenidade nos picos de febre da criança, sabendo quando e como usar óleos essenciais para confortar e acalmar.",
     tag: "🎁 MAIS PEDIDO"
-  },
-  {
-    id: "b2",
-    title: "Informação Detalhada dos 10 Óleos Principais",
-    originalPrice: "R$ 37,00",
-    description: "Um manual digital prático de consulta rápida. Saiba tudo sobre a química segura, contraindicações e benefícios dos top 10 óleos de cuidados respiratórios.",
-    tag: "🎁 ESSENCIAL"
   },
   {
     id: "b3",
@@ -249,7 +197,7 @@ export const OBJECTIONS: Objection[] = [
   {
     id: "obj2",
     question: "E se eu tiver medo de errar na dosagem e fazer mal ao meu filho?",
-    answer: "Esse é o maior medo das mães, e o nosso principal foco é a SEGURANÇA. Você vai receber tabelas exatas de diluição baseadas no peso e na faixa etária da criança (desde bebês de meses a crianças maiores). Seguindo as orientações, o risco de erro é nulo."
+    answer: "Esse é o maior medo das mães, e o nosso principal foco é a SEGURANÇA. Você vai receber tabelas exatas de diluição baseadas na faixa etária da criança (desde bebês de meses a crianças maiores). Seguindo as orientações, o risco de erro é nulo."
   },
   {
     id: "obj3",
