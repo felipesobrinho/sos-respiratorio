@@ -321,7 +321,7 @@ export default function App() {
             className="text-base sm:text-xl text-brand-700/90 font-serif leading-relaxed max-w-3xl mx-auto mb-6 px-1"
             id="hero-extended-subtitle"
           >
-            Aprenda a agir com <strong className="text-brand-900 font-semibold underline decoration-brand-400 decoration-3">mais segurança</strong> quando seu filho apresentar tosse, rinite, resfriado e outros sintomas respiratórios — utilizando os óleos essenciais de forma simples, natural e livre de riscos.
+            Aprenda a agir com <strong className="text-brand-900 font-semibold underline decoration-brand-400 decoration-3">mais segurança</strong> quando seu filho apresentar tosse, rinite, resfriado e outros sintomas respiratórios utilizando os óleos essenciais de forma simples, natural e livre de riscos.
           </motion.p>
 
           {/* Subtítulo complementar */}
@@ -440,9 +440,6 @@ export default function App() {
                 <h4 className="font-serif font-bold text-base text-brand-900 mb-1 leading-snug px-1">
                   Tristeza de ver o filho doente...
                 </h4>
-                <p className="text-xs text-brand-600 px-1 leading-relaxed">
-                  Poucas coisas doem mais no coração de uma mãe do que ver o filho congestionado, com o nariz irritado de tanto escorrer e com o sono cortado à noite.
-                </p>
               </div>
             </div>
 
@@ -882,7 +879,7 @@ export default function App() {
               </div>
               <div className="flex-shrink-0 bg-brand-800/80 border border-brand-700/60 p-4 rounded-xl text-center min-w-40">
                 <span className="text-[10px] text-brand-300 block uppercase font-semibold">Valor da Consulta Padrão:</span>
-                <span className="text-sm line-through text-brand-400 font-mono">R$ 297,00</span>
+                <span className="text-sm line-through text-brand-400 font-mono">R$ 160,00</span>
                 <span className="text-lg font-bold text-amber-gold block mt-0.5">Com 20% OFF</span>
               </div>
             </div>
@@ -1261,7 +1258,7 @@ export default function App() {
 
           <div className="mt-12 pt-8 border-t border-brand-200 text-[11px] sm:text-xs text-brand-500 max-w-sm mx-auto" id="final-credits">
             <p className="mb-2">🔒 Treinamento SOS Respiratório Infantil • Todos os direitos reservados.</p>
-            <p>Precisa de suporte comercial? Fale conosco em <a href="mailto:felipe.sobrinho154@gmail.com" className="underline hover:text-brand-700">felipe.sobrinho154@gmail.com</a></p>
+            <p>Precisa de suporte comercial? Fale conosco em <a href="mailto:miriamnardinprofessora@gmail.com" className="underline hover:text-brand-700">miriamnardinprofessora@gmail.com</a></p>
           </div>
 
         </div>
