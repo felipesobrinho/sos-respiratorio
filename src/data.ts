@@ -136,7 +136,7 @@ export const BONUSES: Bonus[] = [
   {
     id: "b4",
     title: "20% de Desconto no Atendimento Individual",
-    originalPrice: "R$ 60,00",
+    originalPrice: "R$ 160,00",
     description: "Desconto exclusivo para alunas no agendamento de uma consulta de Aromaterapia Infantil 100% personalizada e individual com a Miriam Nardin.",
     tag: "🎁 EXCLUSIVO"
   },
