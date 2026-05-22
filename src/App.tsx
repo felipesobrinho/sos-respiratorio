@@ -433,7 +433,7 @@ export default function App() {
                     src="/crianca2.jpg" 
                     alt="Criança doente com nariz escorrendo" 
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-fill object-center"
+                    className="w-full h-full object-cover object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none" />
                 </div>
