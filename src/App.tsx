@@ -130,7 +130,7 @@ export default function App() {
 
     // Initial toast after 10s, then cycle every 60s
     const initialTimer = setTimeout(triggerToast, 10000);
-    const interval = setInterval(triggerToast, 60000);
+    const interval = setInterval(triggerToast, 120000);
     
     return () => {
       clearTimeout(initialTimer);
