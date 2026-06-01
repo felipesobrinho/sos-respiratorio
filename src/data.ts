@@ -135,9 +135,9 @@ export const BONUSES: Bonus[] = [
   },
   {
     id: "b4",
-    title: "Desconto no Atendimento Individual",
-    originalPrice: "R$ 160,00",
-    description: "Desconto exclusivo para alunas no agendamento de uma consulta de Aromaterapia Infantil 100% personalizada e individual com a Miriam Nardin.",
+    title: "BÔNUS EXCLUSIVO: MENTORIA AO VIVO E ON-LINE DIA 11/07",
+    originalPrice: "R$ 97,00",
+    description: "Um encontro ao vivo fechado e exclusivo com a Miriam Nardin para tirar dúvidas, analisar casos e aprofundar protocolos.",
     tag: "🎁 EXCLUSIVO"
   },
   {
