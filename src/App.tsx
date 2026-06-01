@@ -871,20 +871,10 @@ export default function App() {
             <div className="absolute top-3 right-4.5 bg-amber-gold text-brand-950 font-bold text-[9px] uppercase px-2 py-0.5 rounded tracking-wide">
               Mais desejado pelas mães ★
             </div>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="text-left max-w-xl">
-                <h4 className="font-serif text-lg sm:text-xl font-bold text-white mb-2 flex items-center gap-2">
-                  <span>🎟️ BÔNUS EXCLUSIVO: MENTORIA AO VIVO E ON-LINE DIA 11/07</span>
-                </h4>
-                <p className="text-xs sm:text-sm text-brand-100/90 leading-relaxed">
-                  Quem adquire o SOS Respiratório Infantil hoje recebe o passe livre para participar de um <strong>encontro ao vivo exclusivo</strong> com a Miriam Nardin no dia 11/07. Uma oportunidade ímpar para acompanhamento direito, análise de dúvidas e aprofundamento nos protocolos.
-                </p>
-              </div>
-              <div className="flex-shrink-0 bg-brand-800/80 border border-brand-700/60 p-4 rounded-xl text-center min-w-40">
-                <span className="text-[10px] text-brand-300 block uppercase font-semibold">Valor da Mentoria:</span>
-                <span className="text-sm line-through text-brand-400 font-mono">R$ 97,00</span>
-                <span className="text-lg font-bold text-amber-gold block mt-0.5">100% INCLUSO</span>
-              </div>
+            <div className="flex flex-col items-center justify-center text-center">
+              <h4 className="font-serif text-lg sm:text-xl font-bold text-white flex items-center justify-center gap-2">
+                <span>🎟️ BÔNUS EXCLUSIVO: MENTORIA AO VIVO E ON-LINE DIA 11/07</span>
+              </h4>
             </div>
           </div>
 
