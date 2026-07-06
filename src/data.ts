@@ -134,13 +134,6 @@ export const BONUSES: Bonus[] = [
     tag: "🎁 SUPORTE VIP"
   },
   {
-    id: "b4",
-    title: "BÔNUS EXCLUSIVO: MENTORIA AO VIVO E ON-LINE DIA 11/07",
-    originalPrice: "R$ 97,00",
-    description: "Um encontro ao vivo fechado e exclusivo com a Miriam Nardin para tirar dúvidas, analisar casos e aprofundar protocolos.",
-    tag: "🎁 EXCLUSIVO"
-  },
-  {
     id: "b5",
     title: "Uso Consciente da Aromaterapia Infantil",
     originalPrice: "R$ 27,00",

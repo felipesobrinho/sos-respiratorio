@@ -866,18 +866,6 @@ export default function App() {
             ))}
           </div>
 
-          {/* Social Proof Consultation highlight banner inside bonuses */}
-          <div className="bg-brand-900 text-brand-100 rounded-2xl p-6.5 sm:p-8 mt-12 max-w-4xl mx-auto shadow-md relative" id="priority-bonus-container">
-            <div className="absolute top-3 right-4.5 bg-amber-gold text-brand-950 font-bold text-[9px] uppercase px-2 py-0.5 rounded tracking-wide">
-              Mais desejado pelas mães ★
-            </div>
-            <div className="flex flex-col items-center justify-center text-center">
-              <h4 className="font-serif text-lg sm:text-xl font-bold text-white flex items-center justify-center gap-2">
-                <span>🎟️ BÔNUS EXCLUSIVO: MENTORIA AO VIVO E ON-LINE DIA 11/07</span>
-              </h4>
-            </div>
-          </div>
-
         </div>
       </section>
 
